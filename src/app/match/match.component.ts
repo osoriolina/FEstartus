@@ -28,9 +28,9 @@ export class MatchComponent {
   }
 
   sendFiltersForm(form: FormControl): void {
-  this._data.sendFilters(this.filtersData);
-  console.log(this.filtersData);
-  } 
+    this._data.sendFilters(this.filtersData);
+    console.log(this.filtersData);
+  }
 
   ngOnInit() {
     this._data.companiesGET();

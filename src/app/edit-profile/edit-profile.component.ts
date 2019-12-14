@@ -52,6 +52,7 @@ export class EditProfileComponent {
 
     delete this.profileData['languagesRaw'];
     this._data.sendProfile(this.profileData);
+    // deberia ir al perfil del usuario
     this._router.navigateByUrl('/profile');
   }
 

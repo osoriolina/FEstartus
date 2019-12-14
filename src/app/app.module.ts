@@ -14,25 +14,34 @@ import { RouterModule, Routes } from '@angular/router'
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
+import { PublicSingleProfileComponent } from './public-single-profile/public-single-profile.component';
 
 
 const routerConfig: Routes = [
   {'path': '', 'component': HomeComponent},
   {'path': 'home', 'component': HomeComponent},
+
+  // POST - login & register
   {'path': 'register', 'component': RegisterComponent},
   {
+
+    // POST - company/profile
     'path': 'editProfile',
     'component': EditProfileComponent,
     'canActivate': [AuthGuard]
   },
 
   {
-    'path': 'profile',
+    // GET - user profile (populated)
+    'path': 'userProfile',
     'component': ProfileComponent,
     'canActivate': [AuthGuard]
   },
 
-  {'path': 'profile/:id', 'component': ProfileComponent},
+  // GET - companies/:id - public profile
+  {'path': 'profile/:id', 'component': PublicSingleProfileComponent},
+
+  // Match - Filters
   {'path': 'connect', 'component': MatchComponent},
   {'path': '**', 'component': HomeComponent},
 ]
@@ -44,7 +53,8 @@ const routerConfig: Routes = [
     RegisterComponent,
     MatchComponent,
     ProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    PublicSingleProfileComponent
   ],
   imports: [
     BrowserModule,

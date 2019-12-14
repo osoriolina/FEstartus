@@ -26,6 +26,7 @@ export class DataService {
       );
   }
 
+  // GET profile company
   profileGET(id) {
     let url = 'http://localhost:3000/companies/' + id;
     this._http.get
@@ -45,17 +46,18 @@ export class DataService {
       )
       .subscribe(
         (result: any) => { console.log(result); this.profile.next(result); }
-      )
-
+      );
   }
 
 
+  // POST - subscribe company
   sendProfile(profileData) {
-    this.profilePOST(this.url + 'company/profile', profileData)
+    this.profilePOST(this.url + 'company/profile', profileData);
   }
 
+  // POST /companies BE endpoint
   sendFilters(profileData) {
-    this.profilePOST(this.url + 'companies', profileData)
+    this.profilePOST(this.url + 'companies', profileData);
   }
 
 }
