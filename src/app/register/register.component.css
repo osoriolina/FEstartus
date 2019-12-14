@@ -1,0 +1,94 @@
+.logo {
+    cursor: pointer;
+    width: 100px;
+    margin-left: 80px;
+    margin-top: 50px;
+    outline: none;
+
+}
+
+.container_main {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.register_img {
+    position: absolute;
+    width: 700px;
+    right: 0;
+    bottom: 1;
+}
+
+.container_registerbox {
+    width: 35vw;
+    min-height: 45vh;
+    background-color: white;
+    position: fixed;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+}
+
+.form_group {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.register_btn {
+    background-color: #FF5664;
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 120px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 36%;
+    margin-top: 20px;
+   
+}
+
+.login_btn {
+    background-color: #00A79D;
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 120px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 36%;
+    margin-top: 40px;
+}
+
+.register_row {
+    background-color: white;
+}
+
+.input_box {
+    font-family: 'Oswald', sans-serif;
+    border: 1px solid #FF5664;
+}
+
+.text_btn {
+    font-family: 'Open Sans', sans-serif;
+    color: #00A79D;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.text_login_btn {
+    font-family: 'Open Sans', sans-serif;
+    color: #FF5664;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.text_cursor {
+    cursor: pointer;
+}
+
+.server_msg {
+    font-family: 'Open Sans', sans-serif;
+    color: #FF5664;
+    margin-top: 10px;
+    text-align: center;
+}

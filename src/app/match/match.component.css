@@ -1,0 +1,36 @@
+.logo {
+    cursor: pointer;
+    width: 100px;
+    margin-left: 80px;
+    margin-top: 50px;
+    outline: none;
+
+}
+
+.navbar {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar_txt {
+  margin-top: 66px;
+  margin-left: 80px;
+}
+
+.form_img {
+    position: absolute;
+    height: 700px;
+    right: 0;
+    bottom: 1;
+}
+
+.submit_btn {
+    background-color: #FF5664;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 120px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 65%;
+    margin-top: 30px;
+}

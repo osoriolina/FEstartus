@@ -1,0 +1,114 @@
+<nav class="navbar">
+
+    <img routerLink="/home" class="logo" src="./assets/logo.png">
+
+</nav>
+
+
+<div class="container container_main">
+    <img class="register_img" src="./assets/register_bg.png">
+
+    <div class="container container_registerbox shadow p-3 mb-5 bg-white rounded">
+
+        <!-- REGISTER FORM -->
+
+        <!--INPUT EMAIL-->
+        <div *ngIf="!registeredUser">
+            <form #registerForm="ngForm" (ngSubmit)="sendRegister(registerForm)" class="registerForm form_group">
+                
+                <div class="form-group">
+                    <input #registerMail="ngModel" pattern="\S+@\S+\.\S+" required name="userEmail"
+                        [(ngModel)]="regisEmail" type="email" class="form-control input_box" id="exampleRegisterMail"
+                        aria-describedby="emailHelp" placeholder="Email">
+                    <!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small> -->
+                    <small *ngIf="registerMail.invalid && registerMail.dirty" id="emailHelp"
+                        class="form-text error">Invalid email
+                        format</small>
+                    <small *ngIf="registerMail.invalid && registerMail.touched && registerMail.pristine" id="emailHelp"
+                        class="form-text error">This field is mandatory</small>
+                </div>
+
+                <!--INPUT PASSWORD-->
+                <div class="form-group">
+                    <input #registerPassword="ngModel"
+                        pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}" required
+                        name="userPassword" [(ngModel)]="regisPassword" type="password" class="form-control input_box"
+                        id="exampleRegisterPassword" aria-describedby="passwordlHelp" placeholder="Password">
+
+                    <small *ngIf="registerPassword.invalid && registerPassword.dirty" id="passwordHelp"
+                        class="form-text error">Your
+                        password should contain:
+                        <ul>
+                            <li>Min 8 characters </li>
+                            <li>Min 1 lowercase</li>
+                            <li>Min 1 uppercase</li>
+                            <li>Min 1 number </li>
+                        </ul>
+                    </small>
+                    <small *ngIf="registerPassword.invalid && registerPassword.touched && registerPassword.pristine"
+                        id="passwordHelp" class="form-text error">This field is mandatory</small>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control input_box" id="exampleRegisterConfirmedPassword"
+                        placeholder="Confirm Password">
+                </div>
+                <span class="server_msg">{{this.formDataLogin.message}}</span>
+                <button [disabled]="registerForm.invalid" type="submit"
+                    class="btn btn-primary register_btn">register</button>
+
+            </form>
+
+            <p (click)="this.registeredUser=true" class="text_btn">
+                <span class="text_cursor">I already have an account</span></p>
+        </div>
+
+
+        <!-- LOG IN FORM -->
+
+        <!-- INPUT EMAIL -->
+        <div *ngIf="registeredUser">
+            <form #loginForm="ngForm" (ngSubmit)="sendLogin(loginForm)" class="loginForm form_group">
+                <div class="form-group">
+                    <input #loginMail="ngModel" pattern="\S+@\S+\.\S+" required name="userEmail"
+                        [(ngModel)]="loginEmail" type="email" class="form-control input_box" id="exampleLoginEmail"
+                        aria-describedby="emailHelp" placeholder="Enter email">
+                    <!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                    else.</small> -->
+                    <small *ngIf="loginMail.invalid && loginMail.dirty" id="emailHelp" class="form-text error">Invalid
+                        email
+                        format</small>
+                    <small *ngIf="loginMail.invalid && loginMail.touched && loginMail.pristine" id="emailHelp"
+                        class="form-text error">This field is mandatory</small>
+
+                </div>
+
+
+                <!-- INPUT PASSWORD -->
+                <div class="form-group">
+                    <input #loginPasswordForm="ngModel"
+                        pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}" required
+                        name="userPassword" [(ngModel)]="loginPassword" type="password" class="form-control input_box"
+                        id="exampleLoginPassword" aria-describedby="passwordlHelp" placeholder="Password">
+
+                    <small *ngIf="loginPasswordForm.invalid && loginPasswordForm.dirty" id="passwordHelp"
+                        class="form-text error">Invalid password</small>
+
+                </div>
+
+                <span class="server_msg">{{this.formDataLogin.message}}</span>
+                <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary login_btn">log in</button>
+            </form>
+            <p (click)="this.registeredUser=false" class="text_login_btn">
+                <span class="text_cursor"> I do not have an account</span></p>
+
+
+        </div>
+
+        <!--Closing Second Container -->
+    </div>
+
+
+    <!--Closing Main Container -->
+</div>

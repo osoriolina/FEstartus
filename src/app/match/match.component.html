@@ -1,0 +1,196 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <img routerLink="/home" class="logo" src="./assets/logo.png">
+    <div class="collapse navbar-collapse navbar_txt" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a routerLink="/editProfile" class="nav-link">edit profile</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/profile" class="nav-link" href="#">public profile</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/connect" class="nav-link" href="#">connect with a startup</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!--PRINCIPAL container-->
+
+<div class="container">
+
+    <img class="form_img" src="../../assets/match_bg.png">
+    <div class="row">
+        <div class="col-4">
+            <!-- FILTER FORM -->
+
+            <div class="row">
+                <div class="col-12 shadow p-3 mb-5 bg-white rounded">
+                    <p>filter and connect with a startup</p>
+
+
+                    <form #filterStartups="ngForm" (ngSubmit)="sendFiltersForm(filterStartups)" class="form_group">
+
+                        <!--industry-->
+                        <div class="form-group update_profile">
+                            <label class="input_txt" for="disabledSelect">Industry</label>
+
+                            <select #userIndustry="ngModel" name="userIndustry" [(ngModel)]="filtersData.industry"
+                                id="disabledSelect" class="form-control">
+                                <option value="Agriculture">Agriculture</option>
+                                <option value="Advertising">Advertising</option>
+                                <option value="Aviation">Aviation</option>
+                                <option value="Alternative Energy Production">Alternative Energy Production</option>
+                                <option value="Architecture">Architecture</option>
+                                <option value="Automotive">Automotive</option>
+                                <option value="Attorneys/Law">Attorneys/Law</option>
+                                <option value="Banking">Banking</option>
+                                <option value="Broadcasters/Radio/TV">Broadcasters/Radio/TV</option>
+                                <option value="Chemical Related">Chemical Related</option>
+                                <option value="Communication">Communication</option>
+                                <option value="Computer Software">Computer Software</option>
+                                <option value="Construction">Construction</option>
+                                <option value="Education">Education</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Energy & Natural Resources">Energy & Natural Resources</option>
+                                <option value="Entertainment Industry">Entertainment Industry</option>
+                                <option value="Environment">Environment</option>
+                                <option value="Food">Food</option>
+                                <option value="Foreign & Defense Policy">Foreign & Defense Policy</option>
+                                <option value="Forestry">Forestry</option>
+                                <option value="Foundations Philanthropists & Non Profits">Foundations Philanthropists &
+                                    Non
+                                    Profits</option>
+                                <option value="Garbage Collection/Waste Management">Garbage Collection/Waste Management
+                                </option>
+                                <option value="Gas & Oil">Gas & Oil</option>
+                                <option value="General Contractors">General Contractors</option>
+                                <option value="Graphic Design and Illustrators">Graphic Design and Illustrators</option>
+                                <option value="Health">Health</option>
+                                <option value="Higher Education">Higher Education</option>
+                                <option value="Hotels & Tourism">Hotels & Tourism</option>
+                                <option value="Human Rights">Human Rights</option>
+                                <option value="Insurance">Insurance</option>
+                                <option value="Internet">Internet</option>
+                                <option value="Music Production">Music Production</option>
+                                <option value="Marketing & Communication">Marketing & Communication</option>
+                                <option value="Newspaper & Magazine">Newspaper & Magazine</option>
+                                <option value="Pharmaceutical">Pharmaceutical</option>
+                                <option value="Real State">Real State</option>
+                                <option value="Record Companies (Music Industry)">Record Companies (Music Industry)
+                                </option>
+                                <option value="Restaurants">Restaurants</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Textiles">Textiles</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="TV/Movies/Music">TV/Movies/Music</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <!--company size-->
+                        <div class="form-group update_profile input_txt">
+                            <label for="disabledSelect">Company Size</label>
+
+                            <select #userCompanySize="ngModel" name="userCompanySize"
+                                [(ngModel)]="filtersData.companySize" id="disabledSelect" class="form-control">
+                                <option value="0 to 1 employee">0 to 1 employee</option>
+                                <option value="2 to 10 employees">2 to 10 employees</option>
+                                <option value="11 to 30 employees">11 to 30 employees</option>
+                                <option value="31 to 50 employees">31 to 50 employees</option>
+                                <option value="51 to 200 employees">51 to 200 employees</option>
+                                <option value="201 to 500 employees">201 to 500 employees</option>
+                                <option value="500 +">500 +</option>
+                            </select>
+                        </div>
+
+                        <!--company type-->
+                        <div class="form-group update_profile">
+                            <label class="input_txt" for="disabledSelect">Company Type</label>
+
+                            <select #usercompanyType="ngModel" name="usercompanyType"
+                                [(ngModel)]="filtersData.companyType" id="disabledSelect" class="form-control">
+                                <option value="Educational Institution">Educational Institution</option>
+                                <option value="Government Agency">Government Agency</option>
+                                <option value="Nonprofit">Nonprofit</option>
+                                <option value="Partnership">Partnership</option>
+                                <option value="Private Held">Private Held</option>
+                                <option value="Public Company">Public Company</option>
+                                <option value="Self-Employed">Self-Employed</option>
+                                <option value="Sole Propiertorship">Sole Propiertorship</option>
+                            </select>
+                        </div>
+
+                        <!--country-->
+                        <div class="form-group update_profile">
+                            <input maxlength="100" #userCountry="ngModel" name="userCountry"
+                                [(ngModel)]="filtersData.country" type="textarea" class="form-control rounded input_box"
+                                id="userCountry" aria-describedby="userCountryHelp" placeholder="country">
+                            <small *ngIf="userCountry.invalid && userCountry.dirty" id="userCountryHelp"
+                                class="form-text error">this is
+                                not a
+                                valid format</small>
+                        </div>
+
+                        <!--expertise - MEJORAR-->
+                        <div class="form-group update_profile">
+                            <input maxlength="100" #userExpertise="ngModel" name="userExpertise"
+                                [(ngModel)]="filtersData.expertise" type="textarea"
+                                class="form-control rounded input_box" id="userExpertise"
+                                aria-describedby="userExpertiseHelp" placeholder="expertise">
+                            <small *ngIf="userExpertise.invalid && userExpertise.dirty" id="userExpertiseHelp"
+                                class="form-text error">this is not
+                                a
+                                valid format</small>
+                        </div>
+
+                        <button type="submit"
+                            class="btn btn-primary login_btn submit_btn">filter</button>
+
+
+                    </form> 
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-8">
+            <div class="row">
+                <div *ngFor="let company of profileData" class="col-6">
+
+                    <!-- Company card -->
+
+                    <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="..." class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{company.name}}</h5>
+                                    <p class="card-text">{{company.tagline}}</p>
+                                    <p class="card-text">{{company.yearFounded}}</p>
+                                    <p class="card-text">{{company.country}}</p>
+                                    <p class="card-text">{{company.city}}</p>
+                                    <p class="card-text">{{company.address}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--END PRINCIPAL container-->
+</div>

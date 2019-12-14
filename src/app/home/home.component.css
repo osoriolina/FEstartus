@@ -1,0 +1,42 @@
+
+
+.logo {
+    cursor: pointer;
+    width: 100px;
+    margin-left: 80px;
+    margin-top: 50px;
+    outline: none;
+
+}
+
+.header_pic {
+    width: 700px;
+    padding-right: 80px;
+}
+
+.header_box {
+    margin-left: 100px;
+    margin-top: 140px;
+    margin-right: 150px;
+    padding-right: 80px;
+}
+
+.header_title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+}
+
+.header_text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+.header_button {
+    margin-left: 100px;
+    margin-top: 20px;
+    background-color: #FF5664;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}

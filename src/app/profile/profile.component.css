@@ -1,0 +1,35 @@
+.logo {
+    cursor: pointer;
+    width: 100px;
+    margin-left: 80px;
+    margin-top: 50px;
+    outline: none;
+
+}
+
+.navbar {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar_txt {
+  margin-top: 66px;
+  margin-left: 80px;
+}
+
+.container_main {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.form_img {
+    position: absolute;
+    height: 700px;
+    right: 0;
+    bottom: 1;
+}
+
+.cards_row {
+    margin-top: 9%;
+    position: relative;
+}

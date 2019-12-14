@@ -1,0 +1,110 @@
+.logo {
+    cursor: pointer;
+    width: 100px;
+    margin-left: 80px;
+    margin-top: 50px;
+    outline: none;
+
+}
+
+.navbar {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar_txt {
+  margin-top: 66px;
+  margin-left: 80px;
+}
+
+.container_main {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.form_img {
+    position: absolute;
+    height: 700px;
+    right: 0;
+    bottom: 1;
+}
+
+.container_formbox {
+    width: 40vw;
+    min-height: 45vh;
+    background-color: white;
+    position: fixed;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+}
+
+.next_btn {
+    background-color: #00A79D;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 120px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 70%;
+    margin-top: 30px;
+}
+
+.submit_btn {
+    background-color: #FF5664;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 120px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 70%;
+    margin-top: 30px;
+}
+
+.input_box {
+    font-family: 'Oswald', sans-serif;
+    border: 1px solid #FF5664;
+}
+
+.input_txt {
+    font-family: 'Oswald', sans-serif;
+}
+
+.update_profile {
+    max-width: 450px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.log_out {
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    color: #FF5664;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.go_back {
+    text-align: right;
+    font-family: 'Open Sans', sans-serif;
+    color: #00A79D;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.goBack_row {
+    margin-top: 15px;
+}
+
+.radio_btns {
+    border: 1px solid #FF5664;
+    font-family: 'Oswald', sans-serif;
+    max-width: 450px;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    color: #71787E;
+}

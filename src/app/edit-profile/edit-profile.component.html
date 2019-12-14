@@ -1,0 +1,433 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <img routerLink="/home" class="logo" src="./assets/logo.png">
+    <div class="collapse navbar-collapse navbar_txt" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a routerLink="/editProfile" class="nav-link">edit profile</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/profile" class="nav-link" href="#">public profile</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/connect" class="nav-link" href="#">connect with a startup</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!--PRINCIPAL CONTAINER-->
+
+<div class="container container_main">
+
+    <img class="form_img" src="./assets/form_bg.png">
+
+    <div class="container container_formbox shadow p-3 mb-5 bg-white rounded">
+
+
+        <form #updateProfile="ngForm" (ngSubmit)="sendUpdatedProfile(updateProfile)" class="form_group">
+
+            <!--INFO GENERAL-->
+            <div *ngIf="step == 1">
+                <!--logo-->
+                <div class="form-group update_profile">
+                    <input maxlength="100" #userLogo="ngModel" name="userLogo" [(ngModel)]="profileData.logo"
+                        type="textarea" class="form-control rounded input_box" id="userLogo" aria-describedby="logoHelp"
+                        placeholder="upload your logo">
+                    <small *ngIf="userLogo.invalid && userLogo.dirty" id="userLogoHelp" class="form-text error">this is
+                        not a
+                        supported format</small>
+                </div>
+
+                <!--name-->
+                <div class="form-group update_profile">
+                    <input maxlength="100" #userName="ngModel" name="userName" [(ngModel)]="profileData.name"
+                        type="textarea" class="form-control rounded input_box" id="userName"
+                        aria-describedby="userNameHelp" placeholder="company or startup name">
+                    <small *ngIf="userName.invalid && userName.dirty" id="userNameHelp" class="form-text error">this is
+                        not a
+                        valid format</small>
+                </div>
+
+                <!--tagline-->
+                <div class="form-group update_profile">
+                    <input maxlength="100" #userTagline="ngModel" name="userTagline" [(ngModel)]="profileData.tagline"
+                        type="textarea" class="form-control rounded input_box" id="userTagline"
+                        aria-describedby="userTaglineHelp" placeholder="tagline or slogan">
+                    <small *ngIf="userTagline.invalid && userTagline.dirty" id="userTaglineHelp"
+                        class="form-text error">this is not
+                        a
+                        valid format</small>
+                </div>
+
+                <!--website-->
+                <div class="form-group update_profile">
+                    <input maxlength="100" #userWebsite="ngModel" name="userWebsite" [(ngModel)]="profileData.website"
+                        type="textarea" class="form-control rounded input_box" id="userWebsite"
+                        aria-describedby="websiteHelp" placeholder="website url">
+                    <small *ngIf="userWebsite.invalid && userWebsite.dirty" id="userWebsiteHelp"
+                        class="form-text error">this is not
+                        a
+                        valid format</small>
+                </div>
+
+
+                <!-- NEXT button / log out / go back-->
+                <button (click)="nextStep()" class="next_btn">next</button>
+
+            </div>
+
+
+
+            <!-- COMPANY DESCRIPTION-->
+            <div *ngIf="step == 2">
+                <!--description-->
+                <div class="form-group update_profile">
+                    <textarea maxlength="400" #userDescription="ngModel" name="userDescription"
+                        [(ngModel)]="profileData.description" type="textarea" class="form-control rounded input_box"
+                        id="userDescription" aria-describedby="userDescriptionHelp"
+                        placeholder="write a brief description of your company/startup"> </textarea>
+                    <small *ngIf="userDescription.invalid && userDescription.dirty" id="userDescriptionHelp"
+                        class="form-text error">this is not
+                        a valid format</small>
+                </div>
+
+                <!--company or startup-->
+                <div class="radio_btns">
+                    <label class="form-check-label update_profile" for="radios">are you a company or a startup?</label>
+                    <div class="form-check" id="radios">
+                        <input [(ngModel)]="profileData.companyOrStartup" class="form-check-input" type="radio"
+                            name="compOrstart" id="company" value="Company" checked>
+                        <label class="form-check-label" for="company">
+                            Company
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input required [(ngModel)]="profileData.companyOrStartup" class="form-check-input" type="radio"
+                            name="compOrstart" id="startup" value="Startup">
+                        <label class="form-check-label" for="startup">
+                            Startup
+                        </label>
+                    </div>
+                </div>
+
+
+
+                <!--industry-->
+                <div class="form-group update_profile">
+                    <label class="input_txt" for="disabledSelect">Industry</label>
+
+                    <select #userIndustry="ngModel" name="userIndustry" [(ngModel)]="profileData.industry"
+                        id="disabledSelect" class="form-control">
+                        <option value="Agriculture">Agriculture</option>
+                        <option value="Advertising">Advertising</option>
+                        <option value="Aviation">Aviation</option>
+                        <option value="Alternative Energy Production">Alternative Energy Production</option>
+                        <option value="Architecture">Architecture</option>
+                        <option value="Automotive">Automotive</option>
+                        <option value="Attorneys/Law">Attorneys/Law</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Broadcasters/Radio/TV">Broadcasters/Radio/TV</option>
+                        <option value="Chemical Related">Chemical Related</option>
+                        <option value="Communication">Communication</option>
+                        <option value="Computer Software">Computer Software</option>
+                        <option value="Construction">Construction</option>
+                        <option value="Education">Education</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Energy & Natural Resources">Energy & Natural Resources</option>
+                        <option value="Entertainment Industry">Entertainment Industry</option>
+                        <option value="Environment">Environment</option>
+                        <option value="Food">Food</option>
+                        <option value="Foreign & Defense Policy">Foreign & Defense Policy</option>
+                        <option value="Forestry">Forestry</option>
+                        <option value="Foundations Philanthropists & Non Profits">Foundations Philanthropists & Non
+                            Profits</option>
+                        <option value="Garbage Collection/Waste Management">Garbage Collection/Waste Management</option>
+                        <option value="Gas & Oil">Gas & Oil</option>
+                        <option value="General Contractors">General Contractors</option>
+                        <option value="Graphic Design and Illustrators">Graphic Design and Illustrators</option>
+                        <option value="Health">Health</option>
+                        <option value="Higher Education">Higher Education</option>
+                        <option value="Hotels & Tourism">Hotels & Tourism</option>
+                        <option value="Human Rights">Human Rights</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Internet">Internet</option>
+                        <option value="Music Production">Music Production</option>
+                        <option value="Marketing & Communication">Marketing & Communication</option>
+                        <option value="Newspaper & Magazine">Newspaper & Magazine</option>
+                        <option value="Pharmaceutical">Pharmaceutical</option>
+                        <option value="Real State">Real State</option>
+                        <option value="Record Companies (Music Industry)">Record Companies (Music Industry)</option>
+                        <option value="Restaurants">Restaurants</option>
+                        <option value="Retail">Retail</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Textiles">Textiles</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="TV/Movies/Music">TV/Movies/Music</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <!--company size-->
+                <div class="form-group update_profile input_txt">
+                    <label for="disabledSelect">Company Size</label>
+
+                    <select #userCompanySize="ngModel" name="userCompanySize" [(ngModel)]="profileData.companySize"
+                        id="disabledSelect" class="form-control">
+                        <option value="0 to 1 employee">0 to 1 employee</option>
+                        <option value="2 to 10 employees">2 to 10 employees</option>
+                        <option value="11 to 30 employees">11 to 30 employees</option>
+                        <option value="31 to 50 employees">31 to 50 employees</option>
+                        <option value="51 to 200 employees">51 to 200 employees</option>
+                        <option value="201 to 500 employees">201 to 500 employees</option>
+                        <option value="500 +">500 +</option>
+                    </select>
+                </div>
+
+                <!--company type-->
+                <div class="form-group update_profile">
+                    <label class="input_txt" for="disabledSelect">Company Type</label>
+
+                    <select #usercompanyType="ngModel" name="usercompanyType" [(ngModel)]="profileData.companyType"
+                        id="disabledSelect" class="form-control">
+                        <option value="Educational Institution">Educational Institution</option>
+                        <option value="Government Agency">Government Agency</option>
+                        <option value="Nonprofit">Nonprofit</option>
+                        <option value="Partnership">Partnership</option>
+                        <option value="Private Held">Private Held</option>
+                        <option value="Public Company">Public Company</option>
+                        <option value="Self-Employed">Self-Employed</option>
+                        <option value="Sole Propiertorship">Sole Propiertorship</option>
+                    </select>
+                </div>
+
+                <!-- NEXT button / log out / go back-->
+
+                <button (click)="nextStep()" class="next_btn">next</button>
+
+                <div class="row goBack_row">
+                    <div class="col-6">
+
+                    </div>
+
+                    <div class="col-6">
+                        <span (click)="previousStep()" class="go_back">go back</span>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- EXPERTISE-->
+            <div *ngIf="step == 3">
+
+                <!--year founded-->
+                <div class="form-group update_profile">
+                    <label class="input_txt" for="userYearFounded">Year Founded</label>
+                    <input min="1929-01-01" #userYearFounded="ngModel" name="userYearFounded"
+                        [(ngModel)]="profileData.yearFounded" type="date"
+                        class="form-control" id="userYearFounded"
+                        aria-describedby="userYearFoundedHelp" placeholder="year founded">
+                    <small *ngIf="userYearFounded.invalid && userYearFounded.dirty" id="userYearFoundedHelp"
+                        class="form-text error">Birth date out of range (between now and 80 years ago)</small>
+                </div>
+
+                <!--expertise - MEJORAR-->
+                <div class="form-group update_profile">
+                    <input maxlength="100" #userExpertise="ngModel" name="userExpertise"
+                        [(ngModel)]="profileData.expertise" type="textarea" class="form-control rounded input_box"
+                        id="userExpertise" aria-describedby="userExpertiseHelp"
+                        placeholder="write your expertise and separate by commas">
+                    <small *ngIf="userExpertise.invalid && userExpertise.dirty" id="userExpertiseHelp"
+                        class="form-text error">this is not
+                        a
+                        valid format</small>
+                </div>
+
+                <!--languages-->
+                <div class="update_profile">
+                    <label class="form-check-label update_profile input_txt" for="checkboxes">Languages</label>
+
+                    <div class="form-check" id="checkboxes">
+                        <input name="English" [(ngModel)]="profileData['languagesRaw']['English']" class="input_box form-check-input"
+                            type="checkbox" value="English" id="English">
+                        <label class="form-check-label" for="defaultEnglish">
+                            English
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input name="Spanish" [(ngModel)]="profileData['languagesRaw']['Spanish']" class="input_box form-check-input"
+                            type="checkbox" value="Spanish" id="Spanish">
+                        <label class="form-check-label" for="Spanish">
+                            Spanish
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input name="Catalan" [(ngModel)]="profileData['languagesRaw']['Catalan']" class="input_box form-check-input"
+                            type="checkbox" value="Catalan" id="Catalan">
+                        <label class="form-check-label" for="Catalan">
+                            Catalan
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input name="German" [(ngModel)]="profileData['languagesRaw']['German']" class="input_box form-check-input"
+                            type="checkbox" value="German" id="German">
+                        <label class="form-check-label" for="German">
+                            German
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input name="Portuguese" [(ngModel)]="profileData['languagesRaw']['Portuguese']"
+                            class="input_box form-check-input" type="checkbox" value="Portuguese" id="Portuguese">
+                        <label class="form-check-label" for="Portuguese">
+                            Portuguese
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input name="French" [(ngModel)]="profileData['languagesRaw']['French']" class="input_box form-check-input"
+                            type="checkbox" value="French" id="French">
+                        <label class="form-check-label" for="French">
+                            French
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input name="Italian" [(ngModel)]="profileData['languagesRaw']['Italian']" class="input_box form-check-input"
+                            type="checkbox" value="Italian" id="Italian">
+                        <label class="form-check-label" for="Italian">
+                            Italian
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input name="Arabic" [(ngModel)]="profileData['languagesRaw']['Arabic']" class="input_box form-check-input"
+                            type="checkbox" value="Arabic" id="Arabic">
+                        <label class="form-check-label" for="Arabic">
+                            Arabic
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input name="Russian" [(ngModel)]="profileData['languagesRaw']['Russian']" class="input_box form-check-input"
+                            type="checkbox" value="Russian" id="Russian">
+                        <label class="form-check-label" for="Russian">
+                            Russian
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input name="Other" [(ngModel)]="profileData['languagesRaw']['Other']" class="input_box form-check-input"
+                            type="checkbox" value="Other" id="Other">
+                        <label class="form-check-label" for="Other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <!-- NEXT button / log out / go back-->
+                <button (click)="nextStep()" class="next_btn">next</button>
+
+                <div class="row goBack_row">
+                    <div class="col-6">
+
+                    </div>
+
+                    <div class="col-6">
+                        <span (click)="previousStep()" class="go_back">go back</span>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <!-- CONTACT-->
+            <div *ngIf="step == 4">
+
+                <!--country-->
+                <div class="form-group update_profile">
+                    <input maxlength="100" #userCountry="ngModel" name="userCountry" [(ngModel)]="profileData.country"
+                        type="textarea" class="form-control rounded input_box" id="userCountry"
+                        aria-describedby="userCountryHelp" placeholder="country">
+                    <small *ngIf="userCountry.invalid && userCountry.dirty" id="userCountryHelp"
+                        class="form-text error">this is
+                        not a
+                        valid format</small>
+                </div>
+
+                <!--city-->
+                <div class="form-group update_profile">
+                    <input maxlength="100" #userCity="ngModel" name="userCity" [(ngModel)]="profileData.city"
+                        type="textarea" class="form-control rounded input_box" id="userCity"
+                        aria-describedby="userCityHelp" placeholder="city">
+                    <small *ngIf="userCity.invalid && userCity.dirty" id="userCityHelp" class="form-text error">this is
+                        not a
+                        valid format</small>
+                </div>
+
+                <!--address-->
+                <div class="form-group update_profile">
+                    <input maxlength="100" #userAddress="ngModel" name="userAddress" [(ngModel)]="profileData.address"
+                        type="textarea" class="form-control rounded input_box" id="userAddress"
+                        aria-describedby="userAddressHelp" placeholder="address">
+                    <small *ngIf="userAddress.invalid && userAddress.dirty" id="userAddressHelp"
+                        class="form-text error">this is
+                        not a
+                        valid format</small>
+                </div>
+
+                <!--phone-->
+                <div class="form-group update_profile">
+                    <input maxlength="100" #userPhone="ngModel" name="userPhone" [(ngModel)]="profileData.phone"
+                        type="textarea" class="form-control rounded input_box" id="userPhone"
+                        aria-describedby="userPhoneHelp" placeholder="phone">
+                    <small *ngIf="userPhone.invalid && userPhone.dirty" id="userPhoneHelp" class="form-text error">this
+                        is
+                        not a
+                        valid format</small>
+                </div>
+
+
+                <!--email-->
+                <div class="form-group update_profile">
+                    <input #userMail="ngModel" pattern="\S+@\S+\.\S+" required name="userEmail"
+                        [(ngModel)]="profileData.email" type="userMail" class="form-control input_box" id="userMail"
+                        aria-describedby="userMailHelp" placeholder="email">
+                    <!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small> -->
+                    <small *ngIf="userMail.invalid && userMail.dirty" id="userMailHelp" class="form-text error">Invalid
+                        email
+                        format</small>
+                    <small *ngIf="userMail.invalid && userMail.touched && userMail.pristine" id="userMailHelp"
+                        class="form-text error">This field is mandatory</small>
+                </div>
+
+                <button [disabled]="updateProfile.invalid" type="submit" class="btn btn-primary login_btn submit_btn">save</button>
+            
+                <div class="row goBack_row">
+                        <div class="col-6">
+    
+                        </div>
+    
+                        <div class="col-6">
+                            <span (click)="previousStep()" class="go_back">go back</span>
+                        </div>
+    
+                    </div>
+            </div>
+
+
+        </form>
+
+        <!--END FORM CONTAINER-->
+    </div>
+
+
+    <!--END PRINCIPAL CONTAINER-->
+</div>
