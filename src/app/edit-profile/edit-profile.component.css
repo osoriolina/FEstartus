@@ -82,6 +82,10 @@ a:hover {
     font-family: 'Oswald', sans-serif;
 }
 
+.input_language {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .update_profile {
     max-width: 450px;
     margin: 0 auto;
@@ -102,7 +106,7 @@ a:hover {
     color: #00A79D;
     font-size: 13px;
     cursor: pointer;
-    margin-left: 22%;
+    margin-left: 32%;
 }
 
 .goBack_row {

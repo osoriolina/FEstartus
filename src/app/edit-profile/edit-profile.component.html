@@ -11,6 +11,10 @@
             <li class="nav-item">
                 <a routerLink="/connect" class="nav-link" href="#">connect</a>
             </li>
+
+            <li class="nav-item">
+                <a (click)="logOut()" class="nav-link" href="#">log out</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -41,12 +45,15 @@
 
                 <!--name-->
                 <div class="form-group update_profile">
-                    <input maxlength="100" #userName="ngModel" name="userName" [(ngModel)]="profileData.name"
+                    <input maxlength="50" #userName="ngModel" name="userName" [(ngModel)]="profileData.name"
                         type="textarea" class="form-control rounded input_box" id="userName"
                         aria-describedby="userNameHelp" placeholder="company or startup name">
                     <small *ngIf="userName.invalid && userName.dirty" id="userNameHelp" class="form-text error">this is
                         not a
                         valid format</small>
+                    <small *ngIf="userName.invalid && miMail.touched && userName.pristine" id="userNameHelp"
+                        class="form-text error">Email is mandatory.</small>
+
                 </div>
 
                 <!--tagline-->
@@ -124,11 +131,10 @@
 
 
                 <!--industry-->
-                <div class="form-group update_profile">
-                    <label class="input_txt" for="disabledSelect">Industry</label>
-
+                <div class="form-group update_profile input_txt">
                     <select #userIndustry="ngModel" name="userIndustry" [(ngModel)]="profileData.industry"
                         id="disabledSelect" class="form-control">
+                        <option value="">MANDATORY - select industry</option>
                         <option value="Agriculture">Agriculture</option>
                         <option value="Advertising">Advertising</option>
                         <option value="Aviation">Aviation</option>
@@ -179,10 +185,9 @@
                 </div>
                 <!--company size-->
                 <div class="form-group update_profile input_txt">
-                    <label for="disabledSelect">Company Size</label>
-
                     <select #userCompanySize="ngModel" name="userCompanySize" [(ngModel)]="profileData.companySize"
                         id="disabledSelect" class="form-control">
+                        <option value="">MANDATORY - select company size</option>
                         <option value="0 to 1 employee">0 to 1 employee</option>
                         <option value="2 to 10 employees">2 to 10 employees</option>
                         <option value="11 to 30 employees">11 to 30 employees</option>
@@ -194,11 +199,10 @@
                 </div>
 
                 <!--company type-->
-                <div class="form-group update_profile">
-                    <label class="input_txt" for="disabledSelect">Company Type</label>
-
+                <div class="form-group update_profile input_txt">
                     <select #usercompanyType="ngModel" name="usercompanyType" [(ngModel)]="profileData.companyType"
                         id="disabledSelect" class="form-control">
+                        <option value="">MANDATORY - select company type</option>
                         <option value="Educational Institution">Educational Institution</option>
                         <option value="Government Agency">Government Agency</option>
                         <option value="Nonprofit">Nonprofit</option>
@@ -233,7 +237,7 @@
 
                 <!--year founded-->
                 <div class="form-group update_profile">
-                    <label class="input_txt" for="userYearFounded">Year Founded</label>
+                    <label class="input_txt" for="userYearFounded">MANDAROTY - year founded</label>
                     <input min="1929-01-01" #userYearFounded="ngModel" name="userYearFounded"
                         [(ngModel)]="profileData.yearFounded" type="date" class="form-control" id="userYearFounded"
                         aria-describedby="userYearFoundedHelp" placeholder="year founded">
@@ -255,85 +259,85 @@
 
                 <!--languages-->
                 <div class="update_profile">
-                    <label class="form-check-label update_profile input_txt" for="checkboxes">Languages</label>
+                    <label class="form-check-label update_profile input_txt" for="checkboxes">MANDAROTY - languages</label>
 
                     <div class="form-check" id="checkboxes">
                         <input name="English" [(ngModel)]="profileData['languagesRaw']['English']"
                             class="input_box form-check-input" type="checkbox" value="English" id="English">
-                        <label class="form-check-label" for="defaultEnglish">
-                            English
+                        <label class="form-check-label input_language" for="defaultEnglish">
+                            english
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input name="Spanish" [(ngModel)]="profileData['languagesRaw']['Spanish']"
                             class="input_box form-check-input" type="checkbox" value="Spanish" id="Spanish">
-                        <label class="form-check-label" for="Spanish">
-                            Spanish
+                        <label class="form-check-label input_language" for="Spanish">
+                            spanish
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input name="Catalan" [(ngModel)]="profileData['languagesRaw']['Catalan']"
                             class="input_box form-check-input" type="checkbox" value="Catalan" id="Catalan">
-                        <label class="form-check-label" for="Catalan">
-                            Catalan
+                        <label class="form-check-label input_language" for="Catalan">
+                            catalan
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input name="German" [(ngModel)]="profileData['languagesRaw']['German']"
                             class="input_box form-check-input" type="checkbox" value="German" id="German">
-                        <label class="form-check-label" for="German">
-                            German
+                        <label class="form-check-label input_language" for="German">
+                            german
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input name="Portuguese" [(ngModel)]="profileData['languagesRaw']['Portuguese']"
                             class="input_box form-check-input" type="checkbox" value="Portuguese" id="Portuguese">
-                        <label class="form-check-label" for="Portuguese">
-                            Portuguese
+                        <label class="form-check-label input_language" for="Portuguese">
+                            portuguese
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input name="French" [(ngModel)]="profileData['languagesRaw']['French']"
                             class="input_box form-check-input" type="checkbox" value="French" id="French">
-                        <label class="form-check-label" for="French">
-                            French
+                        <label class="form-check-label input_language" for="French">
+                            french
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input name="Italian" [(ngModel)]="profileData['languagesRaw']['Italian']"
                             class="input_box form-check-input" type="checkbox" value="Italian" id="Italian">
-                        <label class="form-check-label" for="Italian">
-                            Italian
+                        <label class="form-check-label input_language" for="Italian">
+                            italian
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input name="Arabic" [(ngModel)]="profileData['languagesRaw']['Arabic']"
                             class="input_box form-check-input" type="checkbox" value="Arabic" id="Arabic">
-                        <label class="form-check-label" for="Arabic">
-                            Arabic
+                        <label class="form-check-label input_language" for="Arabic">
+                            arabic
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input name="Russian" [(ngModel)]="profileData['languagesRaw']['Russian']"
                             class="input_box form-check-input" type="checkbox" value="Russian" id="Russian">
-                        <label class="form-check-label" for="Russian">
-                            Russian
+                        <label class="form-check-label input_language" for="Russian">
+                            russian
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input name="Other" [(ngModel)]="profileData['languagesRaw']['Other']"
                             class="input_box form-check-input" type="checkbox" value="Other" id="Other">
-                        <label class="form-check-label" for="Other">
-                            Other
+                        <label class="form-check-label input_language" for="Other">
+                            other
                         </label>
                     </div>
                 </div>
@@ -432,7 +436,7 @@
 
                     <div class="col-6">
                         <button [disabled]="updateProfile.invalid" type="submit"
-                    class="btn btn-primary login_btn submit_btn">save</button>
+                            class="btn btn-primary login_btn submit_btn">save</button>
 
                     </div>
 

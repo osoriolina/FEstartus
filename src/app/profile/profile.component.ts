@@ -16,6 +16,7 @@ export class ProfileComponent {
   id: number;
   subscription: Subscription;
   profileData: object;
+  isLogged = false;
 
   constructor(
     public _data: DataService,
@@ -25,6 +26,9 @@ export class ProfileComponent {
     this.subscription = this._data.profile.subscribe(
       (objProfile) => { this.profileData = objProfile; });
 
+  }
+  logOut() {
+    this.isLogged = false;
   }
 
   ngOnInit() {

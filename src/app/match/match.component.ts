@@ -14,6 +14,7 @@ export class MatchComponent {
 
   data: any;
   subscription: Subscription;
+  isLogged = false;
   // OBJ que se recibe con la info GET de las companies
   profileData: object;
 
@@ -31,15 +32,19 @@ export class MatchComponent {
   ) {
 
     this.subscription = this._data.profile.subscribe(
-      (objProfile) => { this.profileData = objProfile; 
-  
-      });
+      (objProfile) => {
+      this.profileData = objProfile;
 
+      });
   }
 
   sendFiltersForm(form: FormControl): void {
     this._data.sendFilters(this.filtersData);
     console.log(this.filtersData);
+  }
+
+  logOut() {
+    this.isLogged = false;
   }
 
   ngOnInit() {

@@ -14,16 +14,15 @@ export class EditProfileComponent {
 
   id: number;
   subscription: Subscription;
-  
   data: object;
-  
   step: number = 1;
-
-
+  isLogged = false;
   profileData: object = {
+    industry: '',
     languagesRaw: {},
     languages: [],
-
+    companySize: '',
+    companyType: ''
   };
 
   constructor(
@@ -49,6 +48,10 @@ export class EditProfileComponent {
 
   previousStep() {
     this.step--;
+  }
+
+  logOut() {
+    this.isLogged = false;
   }
 
   sendUpdatedProfile(form: FormControl): void {

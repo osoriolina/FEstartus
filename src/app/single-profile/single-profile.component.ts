@@ -14,6 +14,7 @@ export class SingleProfileComponent {
   id: number;
   subscription: Subscription;
   profileData: object;
+  isLogged = false;
 
   constructor(
     public _data: DataService,
@@ -29,4 +30,9 @@ export class SingleProfileComponent {
         console.log(this.profileData);
       });
    }
+
+
+  logOut() {
+    this.isLogged = false;
+  }
 }
