@@ -7,24 +7,27 @@ import { RegisterComponent } from './register/register.component';
 import { MatchComponent } from './match/match.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { SingleProfileComponent } from './single-profile/single-profile.component';
+
 
 import { DataService } from './service/data.service';
 import { UserService } from './service/user.service';
 import { RouterModule, Routes } from '@angular/router'
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
-import { PublicSingleProfileComponent } from './public-single-profile/public-single-profile.component';
+
+
+
 
 
 const routerConfig: Routes = [
-  {'path': '', 'component': HomeComponent},
-  {'path': 'home', 'component': HomeComponent},
+  { 'path': '', 'component': HomeComponent },
+  { 'path': 'home', 'component': HomeComponent },
 
   // POST - login & register
-  {'path': 'register', 'component': RegisterComponent},
+  { 'path': 'register', 'component': RegisterComponent },
   {
-
     // POST - company/profile
     'path': 'editProfile',
     'component': EditProfileComponent,
@@ -32,18 +35,19 @@ const routerConfig: Routes = [
   },
 
   {
-    // GET - user profile (populated)
-    'path': 'userProfile',
+    // GET- My Company's Profile
+    'path': 'myprofile',
     'component': ProfileComponent,
     'canActivate': [AuthGuard]
+
   },
 
-  // GET - companies/:id - public profile
-  {'path': 'profile/:id', 'component': PublicSingleProfileComponent},
+  // GET - companies/:id - Company PUBLIC profile (individual)
+  { 'path': 'profile/:id', 'component': SingleProfileComponent},
 
   // Match - Filters
-  {'path': 'connect', 'component': MatchComponent},
-  {'path': '**', 'component': HomeComponent},
+  { 'path': 'connect', 'component': MatchComponent },
+  { 'path': '**', 'component': HomeComponent },
 ]
 
 @NgModule({
@@ -54,7 +58,7 @@ const routerConfig: Routes = [
     MatchComponent,
     ProfileComponent,
     EditProfileComponent,
-    PublicSingleProfileComponent
+    SingleProfileComponent
   ],
   imports: [
     BrowserModule,

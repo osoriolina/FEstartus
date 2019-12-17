@@ -22,11 +22,15 @@ export class DataService {
       { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
     )
       .subscribe(
-        (result) => { console.log(result); this.data = (result) }
+        (result) => { 
+          console.log(result); 
+          this.data = (result);
+          this.profile.next(result)
+        }
       );
   }
 
-  // GET profile company
+  // GET profile company by ID - for all the companies (individual) (PUBLIC)
   profileGET(id) {
     let url = 'http://localhost:3000/companies/' + id;
     this._http.get
@@ -35,9 +39,10 @@ export class DataService {
       )
       .subscribe(
         (result: any) => { console.log(result); this.profile.next(result); }
-      )
+      );
   }
 
+  // GET to get the info of ALL companies for the MATCH(connect) table
   companiesGET() {
     let url = 'http://localhost:3000/companies';
     this._http.get
@@ -49,6 +54,17 @@ export class DataService {
       );
   }
 
+  // GET to get the info of MY company (PRIVATE)
+  myCompanyGET() {
+    let url = 'http://localhost:3000/mycompany';
+    this._http.get
+      (url,
+        { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
+      )
+      .subscribe(
+        (result: any) => { console.log(result); this.profile.next(result); }
+      );
+  }
 
   // POST - subscribe company
   sendProfile(profileData) {

@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 })
 export class ProfileComponent {
 
+  // MY PROFILE - The profile of the user
+
   id: number;
   subscription: Subscription;
   profileData: object;
@@ -20,15 +22,13 @@ export class ProfileComponent {
     public _http: HttpClient,
     public _router: ActivatedRoute
   ) { 
-    this.id = this._router.snapshot.params.id;
-    this._data.profileGET(this.id);
-
     this.subscription = this._data.profile.subscribe(
-      (objProfile) => {
-        console.log(objProfile);
-        this.profileData = objProfile;
-        console.log(this.profileData)
-      });
+      (objProfile) => { this.profileData = objProfile; });
+
+  }
+
+  ngOnInit() {
+    this._data.myCompanyGET();
   }
 
 }

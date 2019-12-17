@@ -12,10 +12,17 @@ import { FormControl } from '@angular/forms';
 })
 export class MatchComponent {
 
+  data: any;
   subscription: Subscription;
+  // OBJ que se recibe con la info GET de las companies
   profileData: object;
 
-  filtersData: object;
+  // IBJ que se envia con la info de los filtros 
+  filtersData = {
+    industry: '',
+    companySize: '',
+    companyType: '',
+  };
 
   constructor(
     public _data: DataService,
@@ -24,7 +31,10 @@ export class MatchComponent {
   ) {
 
     this.subscription = this._data.profile.subscribe(
-      (objProfile) => { this.profileData = objProfile; });
+      (objProfile) => { this.profileData = objProfile; 
+  
+      });
+
   }
 
   sendFiltersForm(form: FormControl): void {
@@ -34,6 +44,7 @@ export class MatchComponent {
 
   ngOnInit() {
     this._data.companiesGET();
+
   }
 
   ngOnDestroy(): void {

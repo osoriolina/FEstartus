@@ -6,7 +6,7 @@
                 <a routerLink="/editProfile" class="nav-link">edit profile</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/userProfile" class="nav-link" href="#">public profile</a>
+                <a routerLink="/myprofile" class="nav-link" href="#">my profile</a>
             </li>
             <li class="nav-item">
                 <a routerLink="/connect" class="nav-link" href="#">connect with a startup</a>
@@ -17,26 +17,26 @@
 
 <!--PRINCIPAL container-->
 
-<div class="container">
+<div class="container body_container">
 
-    <img class="form_img" src="../../assets/match_bg.png">
+    <img class="form_img" src="./assets/match_bg.png">
     <div class="row">
         <div class="col-4">
             <!-- FILTER FORM -->
 
             <div class="row">
                 <div class="col-12 shadow p-3 mb-5 bg-white rounded">
-                    <p>filter and connect with a startup</p>
+                  
 
 
                     <form #filterStartups="ngForm" (ngSubmit)="sendFiltersForm(filterStartups)" class="form_group">
 
                         <!--industry-->
                         <div class="form-group update_profile">
-                            <label class="input_txt" for="disabledSelect">Industry</label>
 
                             <select #userIndustry="ngModel" name="userIndustry" [(ngModel)]="filtersData.industry"
                                 id="disabledSelect" class="form-control">
+                                <option value="">- select - industry</option>
                                 <option value="Agriculture">Agriculture</option>
                                 <option value="Advertising">Advertising</option>
                                 <option value="Aviation">Aviation</option>
@@ -90,10 +90,11 @@
                         </div>
                         <!--company size-->
                         <div class="form-group update_profile input_txt">
-                            <label for="disabledSelect">Company Size</label>
+                         
 
                             <select #userCompanySize="ngModel" name="userCompanySize"
                                 [(ngModel)]="filtersData.companySize" id="disabledSelect" class="form-control">
+                                <option value="">- select - company size</option>
                                 <option value="0 to 1 employee">0 to 1 employee</option>
                                 <option value="2 to 10 employees">2 to 10 employees</option>
                                 <option value="11 to 30 employees">11 to 30 employees</option>
@@ -106,10 +107,10 @@
 
                         <!--company type-->
                         <div class="form-group update_profile">
-                            <label class="input_txt" for="disabledSelect">Company Type</label>
 
                             <select #usercompanyType="ngModel" name="usercompanyType"
                                 [(ngModel)]="filtersData.companyType" id="disabledSelect" class="form-control">
+                                <option value="">- select - company type</option>
                                 <option value="Educational Institution">Educational Institution</option>
                                 <option value="Government Agency">Government Agency</option>
                                 <option value="Nonprofit">Nonprofit</option>
@@ -144,7 +145,9 @@
                                 valid format</small>
                         </div>
 
-                        <button type="submit" class="btn btn-primary login_btn submit_btn">filter</button>
+                        <button type="submit" class="btn btn-primary submit_btn">connect</button>
+                     <button type="reset" class="btn btn-primary login_btn submit_btn">reset</button> 
+
 
 
                     </form>
@@ -156,24 +159,26 @@
         </div>
 
         <div class="col-8">
-            <div class="row">
-                <div *ngFor="let company of profileData"  class="col-6">
+            <div *ngIf="profileData" class="row">
+                <div *ngFor="let company of profileData; let i = index" class="col-6">
 
                     <!-- Company card -->
 
-                    <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 540px;">
+                    <div class="card_properties card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
+                                <img src="../../assets/logo_ex.png" class="card-img" alt="...">
+                              <!--  <img src="{{company.logo}}" class="card-img" alt="..."> -->
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">{{company.name}}</h5>
                                     <p class="card-text">{{company.tagline}}</p>
-                                    <p class="card-text">{{company.yearFounded}}</p>
+                              <!--  <p class="card-text">{{company.yearFounded}}</p> -->
                                     <p class="card-text">{{company.country}}</p>
                                     <p class="card-text">{{company.city}}</p>
-                                    <p class="card-text">{{company.address}}</p>
+
+                                    <button class="btn_enter" routerLink="/profile/{{company._id}}">enter</button>
                                 </div>
                             </div>
                         </div>

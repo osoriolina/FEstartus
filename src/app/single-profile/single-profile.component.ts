@@ -5,14 +5,16 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-public-single-profile',
-  templateUrl: './public-single-profile.component.html',
-  styleUrls: ['./public-single-profile.component.css']
+  selector: 'app-single-profile',
+  templateUrl: './single-profile.component.html',
+  styleUrls: ['./single-profile.component.css']
 })
-export class PublicSingleProfileComponent {
+export class SingleProfileComponent {
+
   id: number;
   subscription: Subscription;
   profileData: object;
+
   constructor(
     public _data: DataService,
     public _http: HttpClient,
@@ -23,9 +25,8 @@ export class PublicSingleProfileComponent {
 
     this.subscription = this._data.profile.subscribe(
       (objProfile) => {
-        console.log(objProfile);
         this.profileData = objProfile;
         console.log(this.profileData);
       });
-  }
+   }
 }

@@ -16,6 +16,11 @@
   margin-left: 80px;
 }
 
+.body_container {
+    margin-top: 6%;
+  
+}
+
 .form_img {
     position: absolute;
     height: 700px;
@@ -30,7 +35,34 @@
     border: none;
     height: 50px;
     width: 120px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Oswald', sans-serif;
     margin-left: 65%;
     margin-top: 30px;
+}
+
+.card_properties {
+    border: none;
+}
+
+.card-title {
+    font-family: 'Oswald', sans-serif;
+}
+
+.card-text {
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.card-body {
+    padding: 2px;
+}
+
+.btn_enter {
+    border: none;
+    background-color: #00A79D;
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 80%;
 }

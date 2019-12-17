@@ -65,7 +65,7 @@
 
 .input_box {
     font-family: 'Oswald', sans-serif;
-    border: 1px solid #FF5664;
+    border: 1px solid #00A79D;
 }
 
 .input_txt {
@@ -99,7 +99,7 @@
 }
 
 .radio_btns {
-    border: 1px solid #FF5664;
+    border: 1px solid #00A79D;
     font-family: 'Oswald', sans-serif;
     max-width: 450px;
     margin: 0 auto;

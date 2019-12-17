@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { DataService } from '../service/data.service';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edit-profile',
@@ -11,19 +12,37 @@ import { Router } from '@angular/router';
 })
 export class EditProfileComponent {
 
+  id: number;
+  subscription: Subscription;
+  
+  data: object;
+  
   step: number = 1;
+
 
   profileData: object = {
     languagesRaw: {},
     languages: [],
-  
+
   };
 
   constructor(
     public _data: DataService,
     public _http: HttpClient,
-    public _router: Router
-  ) { }
+    public _router: Router,
+    public _activatedRoute: ActivatedRoute
+  ) {
+    this.id = this._activatedRoute.snapshot.params.id;
+    this._data.profileGET(this.id);
+
+    this.subscription = this._data.profile.subscribe(
+      (objProfile) => {
+        console.log(objProfile);
+        this.data = objProfile;
+        console.log(this.data);
+      });
+
+  }
 
   nextStep() {
     this.step++;
@@ -53,7 +72,7 @@ export class EditProfileComponent {
     delete this.profileData['languagesRaw'];
     this._data.sendProfile(this.profileData);
     // deberia ir al perfil del usuario
-    this._router.navigateByUrl('/profile');
+    this._router.navigateByUrl('/myprofile');
   }
 
 }

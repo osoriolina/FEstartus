@@ -6,7 +6,7 @@
                 <a routerLink="/editProfile" class="nav-link">edit profile</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/profile" class="nav-link" href="#">public profile</a>
+                <a routerLink="/myprofile" class="nav-link" href="#">my profile</a>
             </li>
             <li class="nav-item">
                 <a routerLink="/connect" class="nav-link" href="#">connect with a startup</a>
@@ -223,8 +223,7 @@
                 <div class="form-group update_profile">
                     <label class="input_txt" for="userYearFounded">Year Founded</label>
                     <input min="1929-01-01" #userYearFounded="ngModel" name="userYearFounded"
-                        [(ngModel)]="profileData.yearFounded" type="date"
-                        class="form-control" id="userYearFounded"
+                        [(ngModel)]="profileData.yearFounded" type="date" class="form-control" id="userYearFounded"
                         aria-describedby="userYearFoundedHelp" placeholder="year founded">
                     <small *ngIf="userYearFounded.invalid && userYearFounded.dirty" id="userYearFoundedHelp"
                         class="form-text error">Birth date out of range (between now and 80 years ago)</small>
@@ -247,32 +246,32 @@
                     <label class="form-check-label update_profile input_txt" for="checkboxes">Languages</label>
 
                     <div class="form-check" id="checkboxes">
-                        <input name="English" [(ngModel)]="profileData['languagesRaw']['English']" class="input_box form-check-input"
-                            type="checkbox" value="English" id="English">
+                        <input name="English" [(ngModel)]="profileData['languagesRaw']['English']"
+                            class="input_box form-check-input" type="checkbox" value="English" id="English">
                         <label class="form-check-label" for="defaultEnglish">
                             English
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input name="Spanish" [(ngModel)]="profileData['languagesRaw']['Spanish']" class="input_box form-check-input"
-                            type="checkbox" value="Spanish" id="Spanish">
+                        <input name="Spanish" [(ngModel)]="profileData['languagesRaw']['Spanish']"
+                            class="input_box form-check-input" type="checkbox" value="Spanish" id="Spanish">
                         <label class="form-check-label" for="Spanish">
                             Spanish
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input name="Catalan" [(ngModel)]="profileData['languagesRaw']['Catalan']" class="input_box form-check-input"
-                            type="checkbox" value="Catalan" id="Catalan">
+                        <input name="Catalan" [(ngModel)]="profileData['languagesRaw']['Catalan']"
+                            class="input_box form-check-input" type="checkbox" value="Catalan" id="Catalan">
                         <label class="form-check-label" for="Catalan">
                             Catalan
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input name="German" [(ngModel)]="profileData['languagesRaw']['German']" class="input_box form-check-input"
-                            type="checkbox" value="German" id="German">
+                        <input name="German" [(ngModel)]="profileData['languagesRaw']['German']"
+                            class="input_box form-check-input" type="checkbox" value="German" id="German">
                         <label class="form-check-label" for="German">
                             German
                         </label>
@@ -287,40 +286,40 @@
                     </div>
 
                     <div class="form-check">
-                        <input name="French" [(ngModel)]="profileData['languagesRaw']['French']" class="input_box form-check-input"
-                            type="checkbox" value="French" id="French">
+                        <input name="French" [(ngModel)]="profileData['languagesRaw']['French']"
+                            class="input_box form-check-input" type="checkbox" value="French" id="French">
                         <label class="form-check-label" for="French">
                             French
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input name="Italian" [(ngModel)]="profileData['languagesRaw']['Italian']" class="input_box form-check-input"
-                            type="checkbox" value="Italian" id="Italian">
+                        <input name="Italian" [(ngModel)]="profileData['languagesRaw']['Italian']"
+                            class="input_box form-check-input" type="checkbox" value="Italian" id="Italian">
                         <label class="form-check-label" for="Italian">
                             Italian
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input name="Arabic" [(ngModel)]="profileData['languagesRaw']['Arabic']" class="input_box form-check-input"
-                            type="checkbox" value="Arabic" id="Arabic">
+                        <input name="Arabic" [(ngModel)]="profileData['languagesRaw']['Arabic']"
+                            class="input_box form-check-input" type="checkbox" value="Arabic" id="Arabic">
                         <label class="form-check-label" for="Arabic">
                             Arabic
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input name="Russian" [(ngModel)]="profileData['languagesRaw']['Russian']" class="input_box form-check-input"
-                            type="checkbox" value="Russian" id="Russian">
+                        <input name="Russian" [(ngModel)]="profileData['languagesRaw']['Russian']"
+                            class="input_box form-check-input" type="checkbox" value="Russian" id="Russian">
                         <label class="form-check-label" for="Russian">
                             Russian
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input name="Other" [(ngModel)]="profileData['languagesRaw']['Other']" class="input_box form-check-input"
-                            type="checkbox" value="Other" id="Other">
+                        <input name="Other" [(ngModel)]="profileData['languagesRaw']['Other']"
+                            class="input_box form-check-input" type="checkbox" value="Other" id="Other">
                         <label class="form-check-label" for="Other">
                             Other
                         </label>
@@ -408,18 +407,21 @@
                         class="form-text error">This field is mandatory</small>
                 </div>
 
-                <button [disabled]="updateProfile.invalid" type="submit" class="btn btn-primary login_btn submit_btn">save</button>
-            
+
+                <button [disabled]="updateProfile.invalid" type="submit"
+                    class="btn btn-primary login_btn submit_btn">save</button>
+
+
                 <div class="row goBack_row">
-                        <div class="col-6">
-    
-                        </div>
-    
-                        <div class="col-6">
-                            <span (click)="previousStep()" class="go_back">go back</span>
-                        </div>
-    
+                    <div class="col-6">
+
                     </div>
+
+                    <div class="col-6">
+                        <span (click)="previousStep()" class="go_back">go back</span>
+                    </div>
+
+                </div>
             </div>
 
 
