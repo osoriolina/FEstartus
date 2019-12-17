@@ -14,6 +14,7 @@ export class RegisterComponent {
   registeredUser: boolean = false;
 
   formDataRegis: {};
+  loginSubscription2: Subscription;
   regisSubscription: Subscription;
   regisEmail: string;
   regisPassword: string;
@@ -29,6 +30,13 @@ export class RegisterComponent {
     public _router: Router
   ) {
 
+    this.loginSubscription2 = _formData.loggedData.subscribe(
+      (newValue) => {
+        if (newValue['logged'] === true) {
+          this._router.navigateByUrl('/myprofile');
+        }
+      }
+    );
     this.regisSubscription = _formData.formData.subscribe(
       (newValue) => {
         this.formDataRegis = newValue;
@@ -37,10 +45,16 @@ export class RegisterComponent {
     this.loginSubscription = _formData.formData.subscribe(
       (newValue) => {
         this.formDataLogin = newValue;
-        //if register ok user logged in and send to profile
-        if(this.formDataLogin.message.indexOf('Successfully') !== -1) {
+        // if register ok user logged in and send to profile
+        if (this.formDataLogin.message.indexOf('Successfully') !== -1) {
           this._formData.login(this.regisEmail, this.regisPassword);
           this._router.navigateByUrl('/myprofile');
+        }
+        console.log(this.formDataLogin);
+
+        if (this.formDataLogin.logged === true) {
+          console.log('bla bla bla bla ');
+
         }
       }
     );
@@ -58,7 +72,7 @@ export class RegisterComponent {
   sendLogin(form: FormControl): void {
     if (form.valid) {
       this._formData.login(this.loginEmail, this.loginPassword);
-      this._router.navigateByUrl('/myprofile');
+
     }
   }
 }

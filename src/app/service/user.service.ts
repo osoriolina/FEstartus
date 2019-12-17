@@ -10,6 +10,7 @@ export class UserService {
   isLogged = false;
   url = 'http://localhost:3000/';
   formData: Subject<object> = new Subject<object>();
+  loggedData: Subject<object> = new Subject<object>();
   loggedUser: string = '';
 
     constructor(
@@ -25,7 +26,9 @@ httpPOST(url: string, obj: object) {
       (result) => {
         //setear una variable en el localstorage e.g. logged true
         localStorage.setItem('token', 'loggedTrue');
+        console.log(result)
         this.formData.next(result);
+        this.loggedData.next(result);
 
       }
     );

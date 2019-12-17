@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -23,6 +23,9 @@ export class ProfileComponent {
     public _http: HttpClient,
     public _router: ActivatedRoute
   ) { 
+
+    this._data.profile = new Subject<object>();
+
     this.subscription = this._data.profile.subscribe(
       (objProfile) => { this.profileData = objProfile; });
 
@@ -33,6 +36,10 @@ export class ProfileComponent {
 
   ngOnInit() {
     this._data.myCompanyGET();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }
