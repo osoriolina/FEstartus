@@ -33,7 +33,6 @@ export class EditProfileComponent {
     public _activatedRoute: ActivatedRoute
   ) {
     this.id = this._activatedRoute.snapshot.params.id;
-    this._data.profileGET(this.id);
 
     this.subscription = this._data.profile.subscribe(
       (objProfile) => {

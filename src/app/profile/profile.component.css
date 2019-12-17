@@ -7,8 +7,19 @@
 
 }
 
-.navbar {
+a {
     font-family: 'Open Sans', sans-serif;
+    color: #00A79D !important;
+}
+
+a:hover {
+    font-family: 'Open Sans', sans-serif;
+    color: #FF5664 !important;
+}
+
+.current {
+    font-family: 'Open Sans', sans-serif;
+    color: #FF5664 !important;
 }
 
 .navbar_txt {
@@ -24,12 +35,45 @@
 
 .form_img {
     position: absolute;
-    height: 700px;
-    right: 0;
+    height: 800px;
     bottom: 1;
 }
 
 .cards_row {
     margin-top: 9%;
     position: relative;
+}
+
+.card-img {
+    max-width: 90px;
+    margin: 20px;
+}
+
+.card_container {
+    border-radius: 20px;
+    border: none;
+    opacity: 0.9;
+    filter: alpha(opacity=30);
+}
+
+.card_description {
+    max-width: 540px !important;
+}
+
+.card_expertise {
+    color: white;
+    background-color: #FF5664;
+}
+
+.card_languages {
+    color: white;
+    background-color: #00A79D;
+}
+
+.card-title {
+    font-family: 'Oswald', sans-serif;
+}
+
+.card-text {
+    font-family: 'Open Sans', sans-serif;
 }

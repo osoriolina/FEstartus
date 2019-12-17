@@ -7,8 +7,19 @@
 
 }
 
-.navbar {
+a {
     font-family: 'Open Sans', sans-serif;
+    color: #00A79D !important;
+}
+
+a:hover {
+    font-family: 'Open Sans', sans-serif;
+    color: #FF5664 !important;
+}
+
+.current {
+    font-family: 'Open Sans', sans-serif;
+    color: #FF5664 !important;
 }
 
 .navbar_txt {
@@ -37,6 +48,7 @@
     left: 50%;
     top: 25%;
     transform: translateX(-50%);
+    border-radius: 20px;
 }
 
 .next_btn {
@@ -47,8 +59,7 @@
     height: 50px;
     width: 120px;
     font-family: 'Open Sans', sans-serif;
-    margin-left: 70%;
-    margin-top: 30px;
+    margin-left: 35%;
 }
 
 .submit_btn {
@@ -59,8 +70,7 @@
     height: 50px;
     width: 120px;
     font-family: 'Open Sans', sans-serif;
-    margin-left: 70%;
-    margin-top: 30px;
+    margin-left: 35%;
 }
 
 .input_box {
@@ -87,11 +97,12 @@
 }
 
 .go_back {
-    text-align: right;
+    text-align: left;
     font-family: 'Open Sans', sans-serif;
     color: #00A79D;
     font-size: 13px;
     cursor: pointer;
+    margin-left: 22%;
 }
 
 .goBack_row {

@@ -28,6 +28,9 @@
     left: 50%;
     top: 20%;
     transform: translateX(-50%);
+    opacity: 0.9;
+    filter: alpha(opacity=30);
+    border-radius: 10px;
 }
 
 .form_group {
@@ -42,10 +45,13 @@
     border: none;
     height: 50px;
     width: 120px;
-    font-family: 'Open Sans', sans-serif;
-    margin-left: 36%;
+    font-family: 'Oswald', sans-serif;
     margin-top: 20px;
    
+}
+
+.form_center {
+    padding-top: 20px;
 }
 
 .login_btn {
@@ -54,9 +60,8 @@
     border: none;
     height: 50px;
     width: 120px;
-    font-family: 'Open Sans', sans-serif;
-    margin-left: 36%;
-    margin-top: 40px;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 20px;
 }
 
 .register_row {
@@ -72,18 +77,24 @@
     font-family: 'Open Sans', sans-serif;
     color: #00A79D;
     margin-top: 10px;
-    text-align: center;
+    text-align: left;
+    margin-left: 75px;
 }
 
 .text_login_btn {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Oswald', sans-serif;
     color: #FF5664;
     margin-top: 10px;
-    text-align: center;
+    text-align: left;
+    margin-left: 75px;
 }
 
 .text_cursor {
     cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    text-align: right;
+    font-size: 13px;
+
 }
 
 .server_msg {

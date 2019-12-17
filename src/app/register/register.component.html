@@ -8,18 +8,18 @@
 <div class="container container_main">
     <img class="register_img" src="./assets/register_bg.png">
 
-    <div class="container container_registerbox shadow p-3 mb-5 bg-white rounded">
+    <div class="container container_registerbox shadow p-3 mb-5 bg-white">
 
         <!-- REGISTER FORM -->
 
         <!--INPUT EMAIL-->
-        <div *ngIf="!registeredUser">
+        <div class="form_center" *ngIf="!registeredUser">
             <form #registerForm="ngForm" (ngSubmit)="sendRegister(registerForm)" class="registerForm form_group">
                 
                 <div class="form-group">
                     <input #registerMail="ngModel" pattern="\S+@\S+\.\S+" required name="userEmail"
                         [(ngModel)]="regisEmail" type="email" class="form-control input_box" id="exampleRegisterMail"
-                        aria-describedby="emailHelp" placeholder="Email">
+                        aria-describedby="emailHelp" placeholder="email">
                     <!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                             else.</small> -->
                     <small *ngIf="registerMail.invalid && registerMail.dirty" id="emailHelp"
@@ -34,7 +34,7 @@
                     <input #registerPassword="ngModel"
                         pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}" required
                         name="userPassword" [(ngModel)]="regisPassword" type="password" class="form-control input_box"
-                        id="exampleRegisterPassword" aria-describedby="passwordlHelp" placeholder="Password">
+                        id="exampleRegisterPassword" aria-describedby="passwordlHelp" placeholder="password">
 
                     <small *ngIf="registerPassword.invalid && registerPassword.dirty" id="passwordHelp"
                         class="form-text error">Your
@@ -50,10 +50,6 @@
                         id="passwordHelp" class="form-text error">This field is mandatory</small>
                 </div>
 
-                <div class="form-group">
-                    <input type="password" class="form-control input_box" id="exampleRegisterConfirmedPassword"
-                        placeholder="Confirm Password">
-                </div>
                 <span class="server_msg">{{this.formDataLogin.message}}</span>
                 <button [disabled]="registerForm.invalid" type="submit"
                     class="btn btn-primary register_btn">register</button>
@@ -68,12 +64,12 @@
         <!-- LOG IN FORM -->
 
         <!-- INPUT EMAIL -->
-        <div *ngIf="registeredUser">
+        <div class="form_center"  *ngIf="registeredUser">
             <form #loginForm="ngForm" (ngSubmit)="sendLogin(loginForm)" class="loginForm form_group">
                 <div class="form-group">
                     <input #loginMail="ngModel" pattern="\S+@\S+\.\S+" required name="userEmail"
                         [(ngModel)]="loginEmail" type="email" class="form-control input_box" id="exampleLoginEmail"
-                        aria-describedby="emailHelp" placeholder="Enter email">
+                        aria-describedby="emailHelp" placeholder="email">
                     <!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                                     else.</small> -->
                     <small *ngIf="loginMail.invalid && loginMail.dirty" id="emailHelp" class="form-text error">Invalid
@@ -90,7 +86,7 @@
                     <input #loginPasswordForm="ngModel"
                         pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}" required
                         name="userPassword" [(ngModel)]="loginPassword" type="password" class="form-control input_box"
-                        id="exampleLoginPassword" aria-describedby="passwordlHelp" placeholder="Password">
+                        id="exampleLoginPassword" aria-describedby="passwordlHelp" placeholder="password">
 
                     <small *ngIf="loginPasswordForm.invalid && loginPasswordForm.dirty" id="passwordHelp"
                         class="form-text error">Invalid password</small>

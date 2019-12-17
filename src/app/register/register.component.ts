@@ -40,7 +40,7 @@ export class RegisterComponent {
         //if register ok user logged in and send to profile
         if(this.formDataLogin.message.indexOf('Successfully') !== -1) {
           this._formData.login(this.regisEmail, this.regisPassword);
-          this._router.navigateByUrl('/editProfile');
+          this._router.navigateByUrl('/myprofile');
         }
       }
     );
@@ -58,7 +58,7 @@ export class RegisterComponent {
   sendLogin(form: FormControl): void {
     if (form.valid) {
       this._formData.login(this.loginEmail, this.loginPassword);
-      this._router.navigateByUrl('/editProfile');
+      this._router.navigateByUrl('/myprofile');
     }
   }
 }

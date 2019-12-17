@@ -9,7 +9,7 @@
                 <a routerLink="/myprofile" class="nav-link" href="#">my profile</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/connect" class="nav-link" href="#">connect with a startup</a>
+                <a routerLink="/connect" class="nav-link current" href="#">connect</a>
             </li>
         </ul>
     </div>
@@ -26,7 +26,7 @@
 
             <div class="row">
                 <div class="col-12 shadow p-3 mb-5 bg-white rounded">
-                  
+
 
 
                     <form #filterStartups="ngForm" (ngSubmit)="sendFiltersForm(filterStartups)" class="form_group">
@@ -90,7 +90,7 @@
                         </div>
                         <!--company size-->
                         <div class="form-group update_profile input_txt">
-                         
+
 
                             <select #userCompanySize="ngModel" name="userCompanySize"
                                 [(ngModel)]="filtersData.companySize" id="disabledSelect" class="form-control">
@@ -145,13 +145,17 @@
                                 valid format</small>
                         </div>
 
-                        <button type="submit" class="btn btn-primary submit_btn">connect</button>
-                     <button type="reset" class="btn btn-primary login_btn submit_btn">reset</button> 
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="reset" class="btn btn-primary login_btn reset_btn">reset</button>
+                            </div>
 
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-primary submit_btn">connect</button>
 
-
+                            </div>
+                        </div>
                     </form>
-
 
                 </div>
             </div>
@@ -164,17 +168,17 @@
 
                     <!-- Company card -->
 
-                    <div class="card_properties card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 540px;">
+                    <div class="card_properties card mb-3 shadow p-3 mb-5 bg-white" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="../../assets/logo_ex.png" class="card-img" alt="...">
-                              <!--  <img src="{{company.logo}}" class="card-img" alt="..."> -->
+                                <img src="./assets/logo_ex.png" class="card-img" alt="...">
+                                <!--  <img src="{{company.logo}}" class="card-img" alt="..."> -->
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">{{company.name}}</h5>
                                     <p class="card-text">{{company.tagline}}</p>
-                              <!--  <p class="card-text">{{company.yearFounded}}</p> -->
+                                    <!--  <p class="card-text">{{company.yearFounded}}</p> -->
                                     <p class="card-text">{{company.country}}</p>
                                     <p class="card-text">{{company.city}}</p>
 

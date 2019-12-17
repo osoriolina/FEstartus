@@ -11,7 +11,7 @@
                 <a routerLink="/myprofile" class="nav-link" href="#">my profile</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/connect" class="nav-link" href="#">connect with a startup</a>
+                <a routerLink="/connect" class="nav-link" href="#">connect</a>
             </li>
         </ul>
     </div>
@@ -28,16 +28,15 @@
         <div class="col-6">
 
             <!-- CARD contact info-->
-            <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 540px;">
+            <div class="card mb-3 shadow p-3 mb-5 bg-white card_container" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="..." class="card-img" alt="...">
+                        <img src="./assets/logo_ex.png" class="card-img" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title" *ngIf="profileData != undefined">{{profileData.name}}</h5>
                             <p class="card-text">{{profileData.tagline}}</p>
-                            <p class="card-text">{{profileData.yearFounded}}</p>
                             <p class="card-text">{{profileData.country}}</p>
                             <p class="card-text">{{profileData.city}}</p>
                             <p class="card-text">{{profileData.address}}</p>
@@ -50,7 +49,7 @@
 
         <div class="col-6">
             <!-- CARD description-->
-            <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 540px;">
+            <div class="card mb-3 shadow p-3 mb-5 bg-white card_container card_description" style="max-width: 540px;">
                 <div class="row no-gutters">
 
                     <div class="col-12">
@@ -68,7 +67,7 @@
     <div class="row">
         <div class="col-6">
             <!-- CARD specifications-->
-            <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 540px;">
+            <div class="card mb-3 shadow p-3 mb-5 bg-white card_container" style="max-width: 540px;">
                 <div class="row no-gutters">
 
                     <div class="col-12">
@@ -89,20 +88,18 @@
             <!-- CARD expertise-->
             <div class="row">
                 <div class="col-6">
-                    <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 15rem;">
+                    <div class="card shadow p-3 mb-5 card_container card_expertise" style="width: 15rem;">
                         <div class="card-body">
                             <h5 class="card-title">Expertise</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                             <p class="card-text">{{profileData.expertise}}</p>
                         </div>
                     </div>
                 </div>
                 <!-- CARD languages-->
                 <div class="col-6">
-                    <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 15rem;">
+                    <div class="card shadow p-3 mb-5 card_container card_languages" style="width: 15rem;">
                         <div class="card-body">
                             <h5 class="card-title">Languages</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                             <p class="card-text">{{profileData.languages}}</p>
                         </div>
                     </div>
