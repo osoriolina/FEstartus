@@ -15,7 +15,9 @@ export class ProfileComponent {
 
   id: number;
   subscription: Subscription;
-  profileData: object;
+  profileData: object = {
+    tagline: ''
+  };
   isLogged = false;
 
   constructor(

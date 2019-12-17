@@ -13,14 +13,13 @@ import { Subscription } from 'rxjs';
 export class RegisterComponent {
   registeredUser: boolean = false;
 
-  formDataRegis: {};
-  loginSubscription2: Subscription;
+  formDataRegis: any = {};
+  loginSubscription: Subscription;
   regisSubscription: Subscription;
   regisEmail: string;
   regisPassword: string;
 
   formDataLogin: any = {};
-  loginSubscription: Subscription;
   loginEmail: string;
   loginPassword: string;
 
@@ -30,35 +29,31 @@ export class RegisterComponent {
     public _router: Router
   ) {
 
-    this.loginSubscription2 = _formData.loggedData.subscribe(
+    this.loginSubscription = _formData.loggedData.subscribe(
       (newValue) => {
         if (newValue['logged'] === true) {
           this._router.navigateByUrl('/myprofile');
         }
       }
     );
+    
     this.regisSubscription = _formData.formData.subscribe(
       (newValue) => {
         this.formDataRegis = newValue;
-      }
-    );
-    this.loginSubscription = _formData.formData.subscribe(
-      (newValue) => {
-        this.formDataLogin = newValue;
+        console.log(this.formDataRegis)
         // if register ok user logged in and send to profile
-        if (this.formDataLogin.message.indexOf('Successfully') !== -1) {
+        if (this.formDataRegis.message.indexOf('Successfully') !== -1) {
           this._formData.login(this.regisEmail, this.regisPassword);
-          this._router.navigateByUrl('/myprofile');
+        //  this._router.navigateByUrl('/myprofile');
         }
-        console.log(this.formDataLogin);
+        console.log(this.formDataRegis);
 
-        if (this.formDataLogin.logged === true) {
+        if (this.formDataRegis.logged === true) {
           console.log('bla bla bla bla ');
 
         }
       }
     );
-
   }
 
 
