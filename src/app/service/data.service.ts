@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class DataService {
 
-  url = 'http://localhost:3000/';
+  url = 'https://startus.es/';
   data: object;
   profile: Subject<object> = new Subject<object>();
 
@@ -32,7 +32,7 @@ export class DataService {
 
   // GET profile company by ID - for all the companies (individual) (PUBLIC)
   profileGET(id) {
-    let url = 'http://localhost:3000/companies/' + id;
+    let url = 'https://startus.es/companies/' + id;
     this._http.get
       (url,
         { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
@@ -44,7 +44,7 @@ export class DataService {
 
   // GET to get the info of ALL companies for the MATCH(connect) table
   companiesGET() {
-    let url = 'http://localhost:3000/companies';
+    let url = 'https://startus.es/companies';
     this._http.get
       (url,
         { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
@@ -56,7 +56,7 @@ export class DataService {
 
   // GET to get the info of MY company (PRIVATE)
   myCompanyGET() {
-    let url = 'http://localhost:3000/mycompany';
+    let url = 'https://startus.es/mycompany';
     this._http.get
       (url,
         { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
