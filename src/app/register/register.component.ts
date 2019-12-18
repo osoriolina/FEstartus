@@ -40,17 +40,9 @@ export class RegisterComponent {
     this.regisSubscription = _formData.formData.subscribe(
       (newValue) => {
         this.formDataRegis = newValue;
-        console.log(this.formDataRegis)
         // if register ok user logged in and send to profile
         if (this.formDataRegis.message.indexOf('Successfully') !== -1) {
           this._formData.login(this.regisEmail, this.regisPassword);
-        //  this._router.navigateByUrl('/myprofile');
-        }
-        console.log(this.formDataRegis);
-
-        if (this.formDataRegis.logged === true) {
-          console.log('bla bla bla bla ');
-
         }
       }
     );
