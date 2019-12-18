@@ -1,5 +1,4 @@
 .logo {
-    cursor: pointer;
     width: 100px;
     margin-left: 80px;
     margin-top: 50px;
@@ -71,6 +70,10 @@ a:hover {
     width: 120px;
     font-family: 'Open Sans', sans-serif;
     margin-left: 35%;
+}
+
+.first_group {
+    margin-top: 15%;
 }
 
 .input_box {

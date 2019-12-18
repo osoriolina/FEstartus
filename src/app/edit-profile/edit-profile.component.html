@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-    <img routerLink="/home" class="logo" src="./assets/logo.png">
+    <img class="logo" src="./assets/logo.png">
     <div class="collapse navbar-collapse navbar_txt" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -32,8 +32,8 @@
         <form #updateProfile="ngForm" (ngSubmit)="sendUpdatedProfile(updateProfile)" class="form_group">
 
             <!--INFO GENERAL-->
-            <div *ngIf="step == 1">
-                <!--logo-->
+            <div class="first_group" *ngIf="step == 1">
+                <!--logo
                 <div class="form-group update_profile">
                     <input maxlength="100" #userLogo="ngModel" name="userLogo" [(ngModel)]="profileData.logo"
                         type="textarea" class="form-control rounded input_box" id="userLogo" aria-describedby="logoHelp"
@@ -41,7 +41,7 @@
                     <small *ngIf="userLogo.invalid && userLogo.dirty" id="userLogoHelp" class="form-text error">this is
                         not a
                         supported format</small>
-                </div>
+                </div> -->
 
                 <!--name-->
                 <div class="form-group update_profile">
