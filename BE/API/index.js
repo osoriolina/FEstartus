@@ -2,6 +2,7 @@ const express = require('express')
 const server = express()
 const bodyparser = require('body-parser')
 const mongoose = require('mongoose')
+const https = require('https')
 
 const cors = require('cors')
 const fs = require('fs')
@@ -350,10 +351,10 @@ mongoose.connect(`mongodb+srv://Lina:${valueMongo}@startus-pk2va.mongodb.net/tes
         })
     })  */
 
-    server.createServer({
+    https.createServer({
         key: fs.readFileSync('/etc/letsencrypt/live/startus.es/privkey.pem'),
         cert: fs.readFileSync('/etc/letsencrypt/live/startus.es/fullchain.pem')
-    }, servidor)
+    }, server)
         .listen(3000, () => {
             console.log(('Conectado puerto 3000').green);
 
