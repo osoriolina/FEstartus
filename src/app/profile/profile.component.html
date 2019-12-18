@@ -38,11 +38,11 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title" *ngIf="profileData != undefined">{{profileData.name}}</h5>
-                            <p class="card-text">{{profileData.tagline}}</p>
-                            <p class="card-text">{{profileData.country}}</p>
-                            <p class="card-text">{{profileData.city}}</p>
-                            <p class="card-text">{{profileData.address}}</p>
+                            <h5 class="card-title" *ngIf="profileData != undefined">{{profileData['name']}}</h5>
+                            <p class="card-text">{{profileData['tagline']}}</p>
+                            <p class="card-text">{{profileData['country']}}</p>
+                            <p class="card-text">{{profileData['city']}}</p>
+                            <p class="card-text">{{profileData['address']}}</p>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                     <div class="col-12">
                         <div class="card-body">
                             <h5 class="card-title">Description</h5>
-                            <p class="card-text">{{profileData.description}}</p>
+                            <p class="card-text">{{profileData['description']}}</p>
                         </div>
                     </div>
                 </div>
@@ -77,9 +77,9 @@
                     <div class="col-12">
                         <div class="card-body">
                             <h5 class="card-title">Specifications</h5>
-                            <p class="card-text">{{profileData.companyType}}</p>
-                            <p class="card-text">{{profileData.industry}}</p>
-                            <p class="card-text">{{profileData.companySize}}</p>
+                            <p class="card-text">{{profileData['companyType']}}</p>
+                            <p class="card-text">{{profileData['industry']}}</p>
+                            <p class="card-text">{{profileData['companySize']}}</p>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                     <div class="card shadow p-3 mb-5 card_container card_expertise" style="width: 15rem;">
                         <div class="card-body">
                             <h5 class="card-title">Expertise</h5>
-                            <p class="card-text">{{profileData.expertise}}</p>
+                            <p class="card-text">{{profileData['expertise']}}</p>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                     <div class="card shadow p-3 mb-5 card_container card_languages" style="width: 15rem;">
                         <div class="card-body">
                             <h5 class="card-title">Languages</h5>
-                            <p class="card-text">{{profileData.languages}}</p>
+                            <p class="card-text">{{profileData['languages']}}</p>
                         </div>
                     </div>
                 </div>

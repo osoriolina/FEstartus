@@ -38,7 +38,7 @@ export class DataService {
         { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
       )
       .subscribe(
-        (result: any) => { console.log(result); this.profile.next(result); }
+        (result: any) => { this.profile.next(result); }
       );
   }
 
@@ -50,7 +50,7 @@ export class DataService {
         { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
       )
       .subscribe(
-        (result: any) => { console.log(result); this.profile.next(result); }
+        (result: any) => { this.profile.next(result); }
       );
   }
 
@@ -62,7 +62,7 @@ export class DataService {
         { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
       )
       .subscribe(
-        (result: any) => { console.log(result); this.profile.next(result); }
+        (result: any) => { this.profile.next(result); }
       );
   }
 

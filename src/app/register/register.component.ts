@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { UserService } from '../service/user.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -49,14 +49,14 @@ export class RegisterComponent {
   }
 
 
-  sendRegister(form: FormControl): void {
+  sendRegister(form: NgForm): void {
     if (form.valid) {
       this._formData.register(this.regisEmail, this.regisPassword);
 
     }
   }
 
-  sendLogin(form: FormControl): void {
+  sendLogin(form: NgForm): void {
     if (form.valid) {
       this._formData.login(this.loginEmail, this.loginPassword);
 

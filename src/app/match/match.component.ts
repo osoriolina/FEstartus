@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { DataService } from '../service/data.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-match',
@@ -38,7 +38,7 @@ export class MatchComponent {
       });
   }
 
-  sendFiltersForm(form: FormControl): void {
+  sendFiltersForm(form: NgForm): void {
     this._data.sendFilters(this.filtersData);
     console.log(this.filtersData);
   }

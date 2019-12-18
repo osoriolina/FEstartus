@@ -13,8 +13,18 @@ export class SingleProfileComponent {
 
   id: number;
   subscription: Subscription;
-  profileData: object;
   isLogged = false;
+  profileData: object = {
+    tagline: '',
+    country: '',
+    city: '',
+    address: '',
+    description: '',
+    companyType: '',
+    industry: '',
+    expertise: [],
+    languages: []
+  };
 
   constructor(
     public _data: DataService,
@@ -27,7 +37,7 @@ export class SingleProfileComponent {
     this.subscription = this._data.profile.subscribe(
       (objProfile) => {
         this.profileData = objProfile;
-        console.log(this.profileData);
+        // console.log(this.profileData);
       });
    }
 

@@ -16,7 +16,15 @@ export class ProfileComponent {
   id: number;
   subscription: Subscription;
   profileData: object = {
-    tagline: ''
+    tagline: '',
+    country: '',
+    city: '',
+    address: '',
+    description: '',
+    companyType: '',
+    industry: '',
+    expertise: [],
+    languages: []
   };
   isLogged = false;
 

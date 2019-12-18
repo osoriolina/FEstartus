@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { DataService } from '../service/data.service';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -54,7 +54,7 @@ export class EditProfileComponent {
     this.isLogged = false;
   }
 
-  sendUpdatedProfile(form: FormControl): void {
+  sendUpdatedProfile(form: NgForm): void {
 
     if (form.valid) {
 
