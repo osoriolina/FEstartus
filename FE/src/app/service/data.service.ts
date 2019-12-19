@@ -19,7 +19,7 @@ export class DataService {
   profilePOST(url: string, obj: object) {
     this._http.post(url,
       obj,
-      { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
+      { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }), withCredentials: true }
     )
       .subscribe(
         (result) => { 
@@ -35,7 +35,7 @@ export class DataService {
     let url = this.url + 'companies/' + id;
     this._http.get
       (url,
-        { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
+        { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }), withCredentials: true }
       )
       .subscribe(
         (result: any) => { this.profile.next(result); }
@@ -47,7 +47,7 @@ export class DataService {
     let url = this.url + 'companies';
     this._http.get
       (url,
-        { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
+        { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }), withCredentials: true }
       )
       .subscribe(
         (result: any) => { this.profile.next(result); }
@@ -59,7 +59,7 @@ export class DataService {
     let url = this.url + 'mycompany';
     this._http.get
       (url,
-        { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
+        { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }), withCredentials: true }
       )
       .subscribe(
         (result: any) => { this.profile.next(result); }

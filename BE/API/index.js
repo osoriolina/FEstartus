@@ -28,8 +28,17 @@ const secrets = JSON.parse(secretsFile)
 const valueMongo = secrets['mongo']
 
 
+
+// CORS options
+const corsOptions = {
+    origin: 'https://startus.es',
+    credentials: true,
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
+
 // Middleware 
-server.use(cors())
+server.use(cors(corsOptions))
 server.use(bodyparser.json())
 server.use(cookieParser())
 server.use(jwtChecker({

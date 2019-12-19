@@ -20,7 +20,7 @@ export class UserService {
 httpPOST(url: string, obj: object) {
   this._http.post(url,
     obj,
-    { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }) }
+    { headers: new HttpHeaders({ 'x-requested-with': 'XMLHttpResponse' }), withCredentials: true }
   )
     .subscribe(
       (result) => {
