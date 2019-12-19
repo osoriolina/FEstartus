@@ -1,4 +1,4 @@
-# <img src="https://github.com/osoriolina/FEstartus/blob/master/FE/src/assets/logo.png>
+<img src="https://github.com/osoriolina/FEstartus/blob/master/FE/src/assets/logo.png>
 
 ## This is a full-stack project that came out of the idea to support and connect entrepreneurs with organisations to spread their ideas and talents
 
